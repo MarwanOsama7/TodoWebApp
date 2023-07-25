@@ -1,0 +1,49 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Task</th>
+            <th scope="col">Date</th>
+            <th scope="col">Done</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">{{todoToBeUpdated.id}}</th>
+            <td> {{todoToBeUpdated.tasks}} </td>
+            <td>{{todoToBeUpdated.date|date}}</td>
+            <td>{{todoToBeUpdated.done}} </td>
+          </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" (click)="update()">Update</button>
+<br><br>
+
+<div *ngIf="show">
+    <form (ngSubmit)="handelSubmit()">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Task " [(ngModel)]="tasks" name="task">
+            </div>
+        </div>
+        <br>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" [(ngModel)]="done" name="done">
+            <label class="form-check-label" for="gridCheck">
+                Done
+            </label>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="user id" [(ngModel)]="userId" name="userId">
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" onClick="window.location.reload();">update</button>
+    </form>
+</div> 
+<br>
+<br>
+<button type="button" class="btn btn-primary" [routerLink]="['/todo']">Go Back To Homepage</button>
